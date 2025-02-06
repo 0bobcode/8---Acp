@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping list</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" src="favicone.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        <h1>Shopping list app</h1>
+        <form id="shoppingform">
+            <input type="text" placeholder="Enter an item" id="item-input">
+            <button>add item</button>
+        </form>
+
     
+    <div id="error-msg" class="error" style="display: none;">
+
+    </div>
+
+    <div id="list-container">
+
+    </div>
+
+    <div id="controls">
+        <p>total items : <span id="item-count">0</span></p>
+        <button id="change-colors">change random colors</button>
+    </div>
+</div>
+    <script src="script.js"></script>
 </body>
 </html>
