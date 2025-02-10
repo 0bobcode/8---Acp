@@ -13,19 +13,21 @@ body{
     text-align: center;
     text-transform: capitalize;
     height: 100vh;
-    
+    min-height: 100vh;
 }
 
 .container{
     box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
     border-radius: 10px;
-    padding:100px 50px;
+    padding:60px 50px;
+    max-width: 600px;
     
 }
 
 h1{
     margin-bottom: 30px;
     font-weight: 100;
+    font-weight: 700;
 }
 
 form{
@@ -33,11 +35,50 @@ form{
     gap:10px;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
+}
+
+
+input{
+    border: 2px solid #ddd;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    width:300px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus{
+    border-color:rgb(2, 225, 225);
+}
+
+button{
+    border: none;
+    padding:10px 25px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    background-color: rgb(2, 225, 225);
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
     
 }
 
-input{
-    border: none;
-    outline: none;
-    padding: 10px;
+.error{
+    color: #d8000c;
+    background-color: #ffbaba;
+    text-align: center;
+    margin-bottom: 15px;
+    padding:10px;
+    border-radius: 3px;
+}
+
+#controls>p{
+    margin-bottom: 16px;
+}
+
+#controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: last baseline;
 }
