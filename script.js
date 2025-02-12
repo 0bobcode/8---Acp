@@ -21,3 +21,48 @@ function getRandomColor(){
 }
 
 console.log(getRandomColor())
+
+//async function to simulate adding an item(could be extendended to real async task)
+async function addItem(itemText){
+    try{
+        //simulate an async opperation(e.x(server reques with a delay))
+        await new Promise(
+            (resolve)=>setTimeout(resolve,500)
+        )
+        //create a new list item element
+        const itemDiv = document.createElement("div")
+        itemDiv.classList.add("item")
+        itemDiv.textContent = itemText;
+        //assign a random backgound color for UI effect
+        itemDiv.Style.backgroundColor = getRandomColor();
+        listContainer.appendChild(itemDiv)
+
+        //update item counter
+        initialItemCount++
+        updateItemCount()
+    }
+
+    catch(error){
+        //log the error and display a user freindly message
+        console.error("error adding item:", error)
+        showError("An error occured while adding the item. Please try again...")
+    }
+
+    
+}
+
+//function to show error message
+function showError(message){
+    errorMsg.textContent = message
+    errorMsg.Style.display = "block"
+    setTimeout(()=>{
+        errorMsg.Style.display = "none"
+    }, 3000)
+    
+}
+
+//handle form submission
+
+form.addEventListener("submit", async(event)=>{
+    event.preventDefault
+})
