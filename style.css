@@ -1,7 +1,7 @@
 *{
     margin:0px;
     padding:0px;
-    font-family: "Didact Gothic", serif;
+    font-family: "Noto Sans Egyptian Hieroglyphs", serif;
     
 }
 
@@ -80,6 +80,7 @@ button{
     color: white;
     background-color: #888;
     transition: background-color 0.3s ease-out;
+    margin-bottom: 20px;
 }
 
 #controls>p{

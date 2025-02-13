@@ -34,7 +34,7 @@ async function addItem(itemText){
         itemDiv.classList.add("item")
         itemDiv.textContent = itemText;
         //assign a random backgound color for UI effect
-        itemDiv.Style.backgroundColor = getRandomColor();
+        itemDiv.style.backgroundColor = getRandomColor();
         listContainer.appendChild(itemDiv)
 
         //update item counter
@@ -54,9 +54,9 @@ async function addItem(itemText){
 //function to show error message
 function showError(message){
     errorMsg.textContent = message
-    errorMsg.Style.display = "block"
+    errorMsg.style.display = "block"
     setTimeout(()=>{
-        errorMsg.Style.display = "none"
+        errorMsg.style.display = "none"
     }, 3000)
     
 }
@@ -64,5 +64,36 @@ function showError(message){
 //handle form submission
 
 form.addEventListener("submit", async(event)=>{
-    event.preventDefault
+    event.preventDefault();
+    const itemText = itemInput.value.trim();
+
+    //validate input
+    if(!itemText){
+        showError("You have to enter at least 1 item.")
+        return;
+    }
+    
+    //add the item asynchronously
+
+    await addItem(itemText)
+
+    //clear the input feild
+
+    itemInput.value = "";
 })
+
+//handle randomizing colors of all items
+changeColors.addEventListener("click", ()=>{
+    const items = document.querySelectorAll(".item")
+    items.forEach(item=>{
+        item.style.backgroundColor = getRandomColor();
+    })
+})
+
+
+
+
+
+
+
+
