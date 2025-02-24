@@ -5,6 +5,7 @@ const errorMsg = document.getElementById("error-msg")
 const listContainer = document.getElementById("list-container")
 const totalItemCount = document.getElementById("item-count")
 const changeColors = document.getElementById("change-colors")
+const clearAllBtn = document.getElementById("clear-all")
 
 //counter for total items
 let initialItemCount = 0
@@ -32,7 +33,26 @@ async function addItem(itemText){
         //create a new list item element
         const itemDiv = document.createElement("div")
         itemDiv.classList.add("item")
-        itemDiv.textContent = itemText;
+
+
+        //create a span for the item text
+        const textSpan = document.createElement("span") 
+        textSpan.textContent = itemText;
+
+        //create a delete button
+        const deleteBtn = document.createElement("button")
+        deleteBtn.textContent = "Delete";
+        deleteBtn.classList.add("delete-btn")
+
+
+        //attach an event listener to delete item
+        deleteBtn.addEventListener("click", ()=>{
+            itemDiv.remove();
+            initialItemCount--;
+            updateItemCount()
+        })
+
+
         //assign a random backgound color for UI effect
         itemDiv.style.backgroundColor = getRandomColor();
         listContainer.appendChild(itemDiv)
@@ -88,6 +108,13 @@ changeColors.addEventListener("click", ()=>{
     items.forEach(item=>{
         item.style.backgroundColor = getRandomColor();
     })
+})
+
+// handaling clear all functionalitiy
+clearAllBtn.addEventListener("click", ()=>{
+    listContainer.innerHTML = ""
+    initialItemCount = 0
+    updateItemCount()
 })
 
 
