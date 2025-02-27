@@ -41,8 +41,12 @@ async function addItem(itemText){
 
         //create a delete button
         const deleteBtn = document.createElement("button")
-        deleteBtn.textContent = "Delete";
+        deleteBtn.textContent = "🗑️";
         deleteBtn.classList.add("delete-btn")
+
+        //append text and delete button to the item container
+        itemDiv.appendChild(textSpan)
+        itemDiv.appendChild(deleteBtn)
 
 
         //attach an event listener to delete item
